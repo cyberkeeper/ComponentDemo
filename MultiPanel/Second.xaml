@@ -1,0 +1,23 @@
+﻿<Window x:Class="MultiPanel.Second"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MultiPanel"
+        mc:Ignorable="d"
+        Title="Second screen" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen" Closed="Window_Closed">
+    <Grid x:Name="___No_Name_">
+        <Label Content="Selected fruit" HorizontalAlignment="Left" Margin="80,64,0,0" VerticalAlignment="Top"/>
+        <Label Content="Selected Person" HorizontalAlignment="Left" Margin="80,169,0,0" VerticalAlignment="Top"/>
+
+        <ScrollViewer Margin="195,100,440,70" Height="50" VerticalScrollBarVisibility="Auto">
+            <TextBlock x:Name="txtPerson" TextWrapping="WrapWithOverflow" Text="Lots of lovely text" Margin="0,0,0,0" Width="167" RenderTransformOrigin="-0.659,-0.999" ToolTip="The details of the person selected via the combobox."/>
+        </ScrollViewer>
+        <Button x:Name="btnClose" Content="Return" Width="200" Height="20" HorizontalAlignment="Left" Margin="550,369,0,0" VerticalAlignment="Top" Click="btnClose_Click" ToolTip="Close this window and return to previous screen"/>
+        <TextBox x:Name="txtFruit" HorizontalAlignment="Left" Height="22" Margin="220,64,0,0" TextWrapping="Wrap" Text="Fruit goes here" VerticalAlignment="Top" Width="150" ToolTip="The fruit type selected via radio button on the mian screen"/>
+        <Label Content="Send this back" HorizontalAlignment="Left" Margin="530,64,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtBackMain" HorizontalAlignment="Left" Height="34" Margin="530,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" ToolTip="The data here will be returned to the main screen."/>
+
+    </Grid>
+</Window>
