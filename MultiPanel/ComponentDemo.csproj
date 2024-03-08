@@ -11,11 +11,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="resources\cat.ico" />
+    <Content Include="resources\cat.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <SplashScreen Include="alienzap.jpg">
+    <SplashScreen Include="resources\alienzap.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </SplashScreen>
   </ItemGroup>
