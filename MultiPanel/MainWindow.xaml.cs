@@ -417,5 +417,23 @@ namespace MultiPanel
         {
             txtFeedback.Text = "";
         }
+
+        /// <summary>
+        /// activated when the user tried to leave the textfield without entering bob.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtBlocker_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtFeedback.Text.Equals("bob"))
+            {
+                txtFeedback.Text = "Welcome bob";
+            }
+            else
+            {
+                //txtFeedback.Text = "You need to unblock bob!";
+                MessageBox.Show("You need to enter bob!", "Where's bob?", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
     }
 }

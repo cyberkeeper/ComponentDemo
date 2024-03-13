@@ -75,15 +75,17 @@
             </TabItem>
             <TabItem x:Name="Textfields" Header="TextFields">
                 <Grid Background="#FFE5E5E5">
-                    <Label Content="Enter a number" HorizontalAlignment="Left" Margin="127,89,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Enter a number" HorizontalAlignment="Left" Margin="127,49,0,0" VerticalAlignment="Top"/>
                     <Label Content="Enter a character" HorizontalAlignment="Left" Margin="127,149,0,0" VerticalAlignment="Top"/>
                     <Label Content="Enter your name and press enter" HorizontalAlignment="Left" Margin="127,208,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="txtNumber" HorizontalAlignment="Center" Margin="0,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="21" PreviewTextInput="txtNumber_PreviewTextInput"/>
+                    <TextBox x:Name="txtNumber" HorizontalAlignment="Center" Margin="0,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="21" PreviewTextInput="txtNumber_PreviewTextInput"/>
                     <TextBox x:Name="txtCharacter" HorizontalAlignment="Center" Margin="0,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="21"/>
                     <TextBox x:Name="txtEnter" HorizontalAlignment="Center" Margin="0,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="21" KeyDown="txtEnter_KeyDown"/>
                     <TextBlock x:Name="txtFeedback" HorizontalAlignment="Left" Height="65" Margin="337,259,0,0" TextWrapping="Wrap" Text="Feedback" VerticalAlignment="Top" Width="260" Background="White"/>
                     <Button x:Name="btnResults" Content="_Results" HorizontalAlignment="Left" Margin="127,259,0,0" VerticalAlignment="Top" Width="115" Click="btnResults_Click"/>
                     <Button x:Name="txtClear" Content="Clear results" HorizontalAlignment="Left" Margin="127,304,0,0" VerticalAlignment="Top" Width="115" Click="txtClear_Click"/>
+                    <Label Content="Blocker" HorizontalAlignment="Left" Height="25" Margin="127,100,0,0" VerticalAlignment="Top" Width="115"/>
+                    <TextBox x:Name="txtBlocker" HorizontalAlignment="Center" Height="25" Margin="0,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" ToolTip="You need to enter bob to continue!" LostFocus="txtBlocker_LostFocus"/>
 
                 </Grid>
             </TabItem>
