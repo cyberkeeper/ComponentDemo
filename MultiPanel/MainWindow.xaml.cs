@@ -1,6 +1,8 @@
 ﻿using People;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace MultiPanel
 {
@@ -325,6 +327,95 @@ namespace MultiPanel
                 //get selected item.
                 txtCBValue.Text = (cbPerson.SelectedItem).ToString();
             }
+        }
+
+        /// <summary>
+        /// Show some results
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnResults_Click(object sender, RoutedEventArgs e)
+        {
+            GenerateResults();
+        }
+
+        /// <summary>
+        /// Get what was entered in the text fields
+        /// </summary>
+        private void GenerateResults()
+        {
+            String output = "";
+            if (IsTextCharacters(txtCharacter.Text))
+            {
+                output = "Text field contains only alphabetic characters\n";
+            }
+            else
+            {
+                output = "Text field contains something that isn't a alphabetic characters\n";
+            }
+
+            output += txtNumber.Text;
+            output += txtEnter.Text;
+
+            txtFeedback.Text = output;
+        }
+        /// <summary>
+        /// matches a string that starts (^) and ends ($) with one or more (+) occurrences of numbers/digits
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        private bool IsTextNumeric(string text)
+        {
+            return Regex.IsMatch(text, @"^\d+$");
+        }
+
+        /// <summary>
+        /// matches a string that starts (^) and ends ($) with one or more (+) occurrences of characters between
+        /// lowercase a to z or uppercase A to Z.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        private bool IsTextCharacters(string text)
+        {
+            return Regex.IsMatch(text, @"^[a-zA-Z]+$");
+        }
+
+        /// <summary>
+        /// check what the user entered before it is echoed to the textfield. If it isn't a number don't let it be entered
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtNumber_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            if (!IsTextNumeric(e.Text))
+            {
+                e.Handled = true;
+                txtFeedback.Text += "Sorry no non numbers allowed!";
+            }
+        }
+
+        /// <summary>
+        /// Detect if the enter key was pressed while the txtEnter textfield had focus
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtEnter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                //call the method that we need
+                GenerateResults();
+            }
+        }
+
+        /// <summary>
+        /// clear results
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtClear_Click(object sender, RoutedEventArgs e)
+        {
+            txtFeedback.Text = "";
         }
     }
 }
